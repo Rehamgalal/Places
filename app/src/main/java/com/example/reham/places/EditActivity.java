@@ -3,7 +3,6 @@ package com.example.reham.places;
 
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
-import android.content.Context;
 import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
@@ -14,7 +13,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -101,7 +99,6 @@ public class EditActivity extends AppCompatActivity {
         final int id = i.getIntExtra("id", 0);
         try {
             city = getcity(latitude, longtude);
-            Log.i("city", "" + city);
         } catch (IOException e) {
             e.printStackTrace();
         }
