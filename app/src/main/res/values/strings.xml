@@ -9,4 +9,13 @@
     <string name="edit">Edit</string>
     <string name="button_maps">  pick the location  </string>
     <string name="button_show_map"> show location > </string>
+    <string name="deleting">item deleted</string>
+    <string name="saving">saved</string>
+    <string name="error">Error inserting reminder</string>
+    <string name="no_location">No location added</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="done_picking">Back to previous</string>
+    <string name="maxtemp">max temperature : </string>
+    <string name="mintemp">min temperature : </string>
 </resources>

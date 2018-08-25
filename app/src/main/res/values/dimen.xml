@@ -11,4 +11,5 @@
     <dimen name="margin_2">16dp</dimen>
     <dimen name="margin_fragment">40dp</dimen>
     <dimen name="width">150dp</dimen>
+    <dimen name="paddingRight">10dp</dimen>
 </resources>

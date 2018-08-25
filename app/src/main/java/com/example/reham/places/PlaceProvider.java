@@ -22,7 +22,7 @@ public class PlaceProvider extends ContentProvider {
     public static UriMatcher buildUriMatcher() {
         UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         uriMatcher.addURI(PlacesContract.Authority, PlacesContract.path, events);
-        uriMatcher.addURI(PlacesContract.Authority, "locations/#",event_ID);
+        uriMatcher.addURI(PlacesContract.Authority, "locations/#", event_ID);
         return uriMatcher;
     }
 
@@ -117,10 +117,10 @@ public class PlaceProvider extends ContentProvider {
             case event_ID:
                 count = db.update(PlacesContract.Entry.tableName, values,
                         PlacesContract.Entry._ID + " = " + uri.getPathSegments().get(1) +
-                                (!TextUtils.isEmpty(selection) ? " AND (" +selection + ')' : ""), selectionArgs);
+                                (!TextUtils.isEmpty(selection) ? " AND (" + selection + ')' : ""), selectionArgs);
                 break;
             default:
-                throw new IllegalArgumentException("Unknown URI " + uri );
+                throw new IllegalArgumentException("Unknown URI " + uri);
         }
 
         getContext().getContentResolver().notifyChange(uri, null);

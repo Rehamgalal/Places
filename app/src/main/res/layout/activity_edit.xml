@@ -27,73 +27,81 @@
                 android:id="@+id/done"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:text="@string/done" />
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
-<ScrollView
-    android:id="@+id/edit_scroll"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginTop="@dimen/margin"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/toolbar_container">
-    <LinearLayout
 
+    <ScrollView
+        android:id="@+id/edit_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
         android:orientation="vertical"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_container">
 
-        <TextView
-            android:id="@+id/place_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_2"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/place_detail"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/container" />
+        <LinearLayout
 
-        <TextView
-            android:id="@+id/place_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/between_margin"
-            app:layout_constraintBottom_toTopOf="@+id/map"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/map"
-            android:layout_width="@dimen/width"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/between_margin"
-            android:textColor="@color/ltgray"
-            android:textStyle="bold"
-            android:background="@color/theme_primary_dark"
-            android:text="@string/button_show_map"
-            app:layout_constraintBottom_toTopOf="@+id/edit"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/place_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_2"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/place_detail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/container" />
 
-        <Button
-            android:id="@+id/edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/between_margin"
-            android:text="@string/edit"
-            android:textStyle="bold"
-            android:textColor="@color/ltgray"
-            android:background="@color/theme_primary_dark"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/place_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/between_margin"
+                app:layout_constraintBottom_toTopOf="@+id/map"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/between_margin" />
+
+            <Button
+                android:id="@+id/map"
+                android:layout_width="@dimen/width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/between_margin"
+                android:background="@color/theme_primary_dark"
+                android:text="@string/button_show_map"
+                android:textColor="@color/ltgray"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/edit"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/between_margin"
+                android:background="@color/theme_primary_dark"
+                android:text="@string/edit"
+                android:textColor="@color/ltgray"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </LinearLayout>
+    </ScrollView>
+
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"

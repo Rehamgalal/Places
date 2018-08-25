@@ -1,9 +1,9 @@
 package com.example.reham.places;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -22,6 +22,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Button done;
     private GoogleMap mMap;
     Intent intent;
+    double lat;
+    double lng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        if (savedInstanceState != null) {
+            lat = savedInstanceState.getDouble("latitude");
+            lng = savedInstanceState.getDouble("longtude");
+        }
         intent = getIntent();
     }
 
@@ -54,10 +60,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         done.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                double l1 = latLng.latitude;
-                                double l2 = latLng.longitude;
-                                intent.putExtra("latitude", l1);
-                                intent.putExtra("longtude", l2);
+                                lat = latLng.latitude;
+                                lng = latLng.longitude;
+                                intent.putExtra("latitude", lat);
+                                intent.putExtra("longtude", lng);
                                 setResult(RESULT_OK, intent);
                                 finish();
                             }
@@ -87,6 +93,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putDouble("latitude", lat);
+        outState.putDouble("longtude", lng);
+    }
 }
 
 

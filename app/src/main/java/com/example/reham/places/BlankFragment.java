@@ -18,9 +18,6 @@ public class BlankFragment extends Fragment {
     double latitude = 0.00;
     double longtude = 0.00;
 
-    public BlankFragment() {
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -45,11 +42,10 @@ public class BlankFragment extends Fragment {
                 if (!getArguments().getString("editactivity").equals("")) {
                     int id = getArguments().getInt("id");
                     ContentValues contentValues = new ContentValues();
-                    if (!name.equals("")) contentValues.put(PlacesContract.Entry.placeName, name);
-                    if (!description.equals(""))
-                        contentValues.put(PlacesContract.Entry.placeDescription, description);
-                    if (latitude != 0) contentValues.put(PlacesContract.Entry.latitude, latitude);
-                    if (longtude != 0) contentValues.put(PlacesContract.Entry.longtude, longtude);
+                    contentValues.put(PlacesContract.Entry.placeName, name);
+                    contentValues.put(PlacesContract.Entry.placeDescription, description);
+                    contentValues.put(PlacesContract.Entry.latitude, latitude);
+                    contentValues.put(PlacesContract.Entry.longtude, longtude);
                     getContext().getContentResolver().update(PlacesContract.Entry.CONTENT_URI, contentValues, PlacesContract.Entry._ID + "=?", new String[]{String.valueOf(id)});
                 } else {
                     ContentValues contentValues = new ContentValues();
@@ -58,9 +54,9 @@ public class BlankFragment extends Fragment {
                     contentValues.put(PlacesContract.Entry.latitude, latitude);
                     contentValues.put(PlacesContract.Entry.longtude, longtude);
                     Uri uri = getContext().getContentResolver().insert(PlacesContract.Entry.CONTENT_URI, contentValues);
-                    Toast.makeText(getContext(), "Saved", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), R.string.saving, Toast.LENGTH_LONG).show();
                     if (uri == null) {
-                        Toast.makeText(getContext(), "Error inserting reminder", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), R.string.error, Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -77,14 +73,8 @@ public class BlankFragment extends Fragment {
                 longtude = data.getDoubleExtra("longtude", 0);
             }
             if (resultCode == Activity.RESULT_CANCELED) {
-                Toast.makeText(getActivity(), "No location added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.no_location, Toast.LENGTH_SHORT).show();
             }
         }
     }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
 }

@@ -27,7 +27,7 @@
                 android:id="@+id/done"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:text="@string/done" />
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
@@ -53,6 +53,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="@dimen/margin"
         android:layout_marginEnd="@dimen/margin"
+        android:contentDescription="@string/add"
         android:elevation="@dimen/fab_elevation"
         android:src="@drawable/add_icon"
         app:layout_constraintBottom_toBottomOf="parent"
