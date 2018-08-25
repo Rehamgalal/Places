@@ -86,16 +86,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        //MobileAds.initialize(this, AdRequest.DEVICE_ID_EMULATOR);
+        MobileAds.initialize(this, AdRequest.DEVICE_ID_EMULATOR);
         getLoaderManager().initLoader(1, null, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
-        /*AdView adView = new AdView(this);
+        AdView adView = new AdView(this);
         adView.setAdSize(AdSize.BANNER);
         adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-*/
+
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT | ItemTouchHelper.DOWN | ItemTouchHelper.UP) {
 
             @Override

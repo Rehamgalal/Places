@@ -180,7 +180,7 @@ public class EditActivity extends AppCompatActivity {
         @Override
         protected Object doInBackground(Object[] objects) {
             try {
-                URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=1a165470b49d89a2a308cfba06ff1f6e");
+                URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=YOUR_API_KEY");
 
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
