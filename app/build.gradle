@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'key0'
+            keyPassword 'keystore123'
+            storeFile file('C:/Users/reham/Downloads/Places/keystore.jks')
+            storePassword 'keystore123'
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.reham.places"
@@ -10,19 +18,16 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    signingConfigs {
-        release {
-            storeFile file("release-key.keystore")
-            storePassword 'passwotd'
-            keyAlias 'alias'
-            keyPassword 'password'
-        }
-    }
+    
     buildTypes {
         release {
             debuggable false
             minifyEnabled true
-            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
         }
     }
     productFlavors {
